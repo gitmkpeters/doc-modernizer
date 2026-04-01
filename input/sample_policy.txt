@@ -1,0 +1,76 @@
+ADMINISTRATIVE POLICY AND PROCEDURE DIRECTIVE
+SUBJECT: MANAGEMENT AND CONTROL OF INFORMATION TECHNOLOGY ASSETS
+DIRECTIVE NUMBER: IT-POL-004
+EFFECTIVE DATE: JANUARY 15, 2009
+SUPERSEDES: IT-POL-003 (DATED MARCH 22, 2001)
+ISSUING AUTHORITY: OFFICE OF THE CHIEF INFORMATION OFFICER
+
+I. PURPOSE AND APPLICABILITY
+
+1.1 PURPOSE
+
+The purpose of this Directive is to establish and promulgate policies, procedures, and responsibilities pertaining to the management, control, accountability, and disposition of all Information Technology (hereinafter referred to as "IT") assets owned by, leased by, or otherwise under the custody and control of this organization (hereinafter referred to as "the Agency"), in accordance with applicable Federal statutes, regulations, and Office of Management and Budget (OMB) Circulars.
+
+1.2 APPLICABILITY
+
+The provisions set forth herein shall apply to all organizational units of the Agency, including but not limited to all Divisions, Branches, Offices, and Field Stations, and to all personnel, including permanent and temporary employees, contractors, detailees, and volunteers, who utilize, manage, or have physical or logical access to Agency IT assets.
+
+II. DEFINITIONS
+
+2.1 For the purposes of this Directive, the following terms shall have the meanings ascribed to them herein:
+
+(a) "IT Asset" shall mean any hardware, software, firmware, or combination thereof, including but not limited to desktop computers, laptop computers, portable computing devices, servers, networking equipment, telecommunications equipment, peripheral devices, and all software licenses associated therewith.
+
+(b) "Custodian" shall mean the individual employee to whom an IT asset has been formally assigned and who bears primary responsibility for the safekeeping and proper utilization of said asset.
+
+(c) "Excess Property" shall mean any IT asset which has been determined by the cognizant supervisor or Property Officer to no longer serve a current programmatic need of the organizational unit to which it is assigned.
+
+(d) "IT Property Officer" shall mean the designated individual within each organizational unit who is charged with maintaining accurate records pertaining to IT asset inventory and who serves as the primary liaison to the Office of the Chief Information Officer (OCIIO) on matters pertaining to asset management.
+
+III. POLICY REQUIREMENTS
+
+3.1 INVENTORY AND ACCOUNTABILITY
+
+3.1.1 It shall be the responsibility of each organizational unit to maintain a complete and accurate inventory of all IT assets within its custody, which inventory shall be reconciled against the Agency-wide IT asset management system not less than once per fiscal year or upon request by the OCIIO, whichever shall occur first.
+
+3.1.2 Each IT asset acquired by the Agency, whether through direct purchase, inter-agency transfer, donation, or any other means, shall be assigned a unique property control number and entered into the Agency-wide IT asset management system within ten (10) business days of receipt.
+
+3.1.3 Notwithstanding the foregoing, in those instances where an IT asset is acquired under emergency circumstances or pursuant to a sole-source procurement, the time period prescribed in subsection 3.1.2 above may be extended by the IT Property Officer upon written notification to the OCIIO, provided that in no case shall such extension exceed thirty (30) calendar days.
+
+3.2 ASSIGNMENT AND TRANSFER
+
+3.2.1 No IT asset shall be transferred between organizational units, loaned to external parties, or relocated from its assigned location without prior written authorization from the IT Property Officer of the originating organizational unit and concurrent notification to the OCIIO.
+
+3.2.2 In the event that operational requirements necessitate the temporary loan of an IT asset to a party external to the Agency, a formal loan agreement, which shall be provided by the OCIIO, must be executed prior to the release of said asset. The loan period shall not exceed ninety (90) calendar days without specific written approval from the OCIIO Director or designee.
+
+3.3 DISPOSITION AND DISPOSAL
+
+3.3.1 Prior to the disposition of any IT asset, regardless of the method of disposal contemplated, the Custodian shall ensure that all Agency data has been removed from the device in accordance with the current Agency Data Sanitization Standard (ADSS-2008), a copy of which may be obtained from the OCIIO.
+
+3.3.2 Disposition of IT assets shall be accomplished through one of the following methods, listed in order of preference: (1) transfer to another Federal agency through the General Services Administration (GSA) excess property program; (2) donation to an eligible educational institution or non-profit organization in accordance with applicable statute; (3) sale through public auction; (4) destruction, which method shall be employed only when the asset is determined to have no residual economic value and when all other methods have been exhausted or are otherwise impracticable.
+
+3.3.3 Under no circumstances shall Agency IT assets be disposed of through placement in ordinary trash receptacles or through any other means not explicitly authorized by this Directive or by written approval of the OCIIO Director.
+
+IV. RESPONSIBILITIES
+
+4.1 THE OFFICE OF THE CHIEF INFORMATION OFFICER (OCIIO) shall be responsible for: (a) establishing and maintaining the Agency-wide IT asset management system; (b) providing guidance and training to IT Property Officers; (c) conducting periodic audits of IT asset inventories; (d) approving exceptions to the requirements set forth herein.
+
+4.2 DIVISION DIRECTORS AND OFFICE HEADS shall be responsible for ensuring that all personnel under their supervision comply with the requirements of this Directive and shall designate, in writing, an IT Property Officer for their respective organizational unit.
+
+4.3 IT PROPERTY OFFICERS shall be responsible for: (a) maintaining accurate IT asset inventory records for their organizational unit; (b) coordinating with the OCIIO on all matters pertaining to asset acquisition, transfer, and disposal; (c) ensuring that Custodians within their organizational unit are informed of their responsibilities under this Directive; (d) submitting required reports to the OCIIO in a timely manner.
+
+4.4 CUSTODIANS shall be responsible for: (a) safeguarding IT assets assigned to them from loss, theft, damage, or unauthorized use; (b) reporting any loss, theft, or damage to their IT Property Officer within twenty-four (24) hours of discovery; (c) ensuring that IT assets are used only for official Government purposes; (d) returning assigned IT assets to the IT Property Officer upon separation from the Agency or reassignment to another organizational unit.
+
+V. REPORTING REQUIREMENTS
+
+5.1 Each IT Property Officer shall submit to the OCIIO a complete inventory reconciliation report no later than the thirtieth (30th) calendar day following the close of each fiscal year. Said report shall be submitted in the format prescribed by the OCIIO and shall include, at minimum, all information required by the applicable OMB Circular.
+
+5.2 In the event of the loss or theft of any IT asset, the IT Property Officer shall submit a written incident report to the OCIIO within seventy-two (72) hours of the Custodian's report, which report shall include a description of the asset, its assigned property control number, the circumstances of the loss or theft to the extent known, and any corrective actions taken or planned.
+
+VI. NON-COMPLIANCE
+
+6.1 Failure to comply with the requirements of this Directive may result in administrative action up to and including removal from Federal service, in accordance with applicable personnel regulations and collective bargaining agreements. In addition, willful violation of data sanitization requirements prior to disposal may result in referral to appropriate investigative authorities.
+
+VII. EFFECTIVE DATE AND SUPERSESSION
+
+7.1 This Directive is effective as of the date shown above and supersedes IT-POL-003 in its entirety. Questions regarding the interpretation or application of this Directive should be directed to the OCIIO at the contact information maintained on the Agency intranet.

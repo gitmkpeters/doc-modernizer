@@ -1,0 +1,16 @@
+# Never commit your API key
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Pipeline outputs (optional — remove these lines if you want to track outputs in git)
+output/
+reports/
+
+# macOS
+.DS_Store
