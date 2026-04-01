@@ -39,9 +39,9 @@ from dotenv import load_dotenv
 from models.pipeline_state import PipelineState
 from agents import analyzer
 from agents import converter
+from agents import test_generator
 
-# Agents 3-5 will be imported here as we build them:
-# from agents import test_generator
+# Agents 4-5 will be imported here as we build them:
 # from agents import deployer
 # from agents import verifier
 
@@ -193,17 +193,37 @@ def run_pipeline(document_path: str) -> PipelineState:
         return state
 
     # ── AGENT 3 — TEST GENERATOR ──────────────────────────────────────────────
-    # (Coming next session)
-    print("\n  [Agent 3 — Test Generator: coming soon]")
+    #
+    # Uses both the semantic map and the modernized document to generate
+    # verification questions. Risk flags warn you if anything may be missing.
+
+    try:
+        state = test_generator.run(state, client)
+    except Exception as e:
+        error_msg = f"Test Generator failed: {e}"
+        state.errors.append(error_msg)
+        print(f"\n  ✗ {error_msg}")
+        print("  Pipeline halted due to Agent 3 error.")
+        save_checkpoint(state, "FAILED_at_test_generator")
+        return state
+
+    save_checkpoint(state, "after_agent3_test_generator")
+
+    # Human review gate — review the questions and any risk flags before deploying.
+    # If Agent 3 flagged questions it couldn't answer from the rewrite, something
+    # was dropped in conversion and you should reject here and rerun.
+    if not human_review_gate(state, "AFTER TEST GENERATION — Review questions & risk flags"):
+        save_checkpoint(state, "HALTED_at_gate3")
+        return state
 
     # ── AGENT 4 — DEPLOYER ────────────────────────────────────────────────────
-    print("  [Agent 4 — Deployer: coming soon]")
+    print("\n  [Agent 4 — Deployer: coming soon]")
 
     # ── AGENT 5 — VERIFIER ────────────────────────────────────────────────────
     print("  [Agent 5 — Verifier: coming soon]")
 
     print("\n" + "=" * 60)
-    print("  PIPELINE COMPLETE (Session 2 scope)")
+    print("  PIPELINE COMPLETE (Session 3 scope)")
     print("=" * 60)
     print(state.summary())
 
