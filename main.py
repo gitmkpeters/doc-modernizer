@@ -38,9 +38,9 @@ from dotenv import load_dotenv
 
 from models.pipeline_state import PipelineState
 from agents import analyzer
+from agents import converter
 
-# Agents 2-5 will be imported here as we build them:
-# from agents import converter
+# Agents 3-5 will be imported here as we build them:
 # from agents import test_generator
 # from agents import deployer
 # from agents import verifier
@@ -170,23 +170,40 @@ def run_pipeline(document_path: str) -> PipelineState:
         return state
 
     # ── AGENT 2 — CONVERTER ───────────────────────────────────────────────────
-    # (Will be added in the next build session)
-    print("\n  [Agent 2 — Converter: coming next session]")
+    #
+    # Takes the semantic map and rewrites the document in plain modern language.
+    # Works entirely from the map — never reads the original document.
+
+    try:
+        state = converter.run(state, client)
+    except Exception as e:
+        error_msg = f"Converter failed: {e}"
+        state.errors.append(error_msg)
+        print(f"\n  ✗ {error_msg}")
+        print("  Pipeline halted due to Agent 2 error.")
+        save_checkpoint(state, "FAILED_at_converter")
+        return state
+
+    save_checkpoint(state, "after_agent2_converter")
+
+    # Human review gate — read the modernized document before generating
+    # test questions. Does it sound right? Did anything get lost or distorted?
+    if not human_review_gate(state, "AFTER CONVERSION — Review modernized document"):
+        save_checkpoint(state, "HALTED_at_gate2")
+        return state
 
     # ── AGENT 3 — TEST GENERATOR ──────────────────────────────────────────────
-    # (Will be added after Agent 2)
-    print("  [Agent 3 — Test Generator: coming soon]")
+    # (Coming next session)
+    print("\n  [Agent 3 — Test Generator: coming soon]")
 
     # ── AGENT 4 — DEPLOYER ────────────────────────────────────────────────────
-    # (Will be added after Agent 3)
     print("  [Agent 4 — Deployer: coming soon]")
 
     # ── AGENT 5 — VERIFIER ────────────────────────────────────────────────────
-    # (Will be added after Agent 4)
     print("  [Agent 5 — Verifier: coming soon]")
 
     print("\n" + "=" * 60)
-    print("  PIPELINE COMPLETE (Session 1 scope)")
+    print("  PIPELINE COMPLETE (Session 2 scope)")
     print("=" * 60)
     print(state.summary())
 
