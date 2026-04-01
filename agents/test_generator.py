@@ -54,13 +54,12 @@ QUESTION DESIGN RULES:
 - Every question must be answerable using ONLY the modernized document (no outside knowledge needed)
 - Every question must have a single, unambiguous correct answer
 - Questions must cover all critical content: deadlines, roles, rules, procedures, definitions
-- Include at least 2 questions per rule marked mandatory: true in the semantic map
-- Include at least 1 question per procedure
-- Include at least 1 question per defined term
-- Include at least 1 question per role and their specific responsibilities
+- Prioritize mandatory rules, procedures, specific deadlines, and defined terms
 - Flag any question where you suspect the modernized document may NOT contain the answer
+- LIMIT: Generate no more than 20 questions total — choose the most important ones
 
-OUTPUT FORMAT — return ONLY valid JSON, no markdown, no explanation:
+OUTPUT FORMAT — return ONLY valid JSON, no markdown, no explanation.
+Keep correct_answer brief (under 20 words). Keep risk_note brief (under 15 words).
 
 {
   "total_questions": 0,
@@ -74,11 +73,11 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no explanation:
     {
       "id": "Q001",
       "category": "factual | role | procedural | rule | definition",
-      "question": "string — the question, written clearly",
-      "correct_answer": "string — the exact correct answer based on the semantic map",
-      "source_rule_or_section": "string — which rule/procedure/term this tests (e.g. R003, P002)",
+      "question": "string",
+      "correct_answer": "string — brief, under 20 words",
+      "source": "R001 | P001 | term | role",
       "risk_flag": false,
-      "risk_note": "string or null — if risk_flag is true, explain what may be missing from the rewrite"
+      "risk_note": null
     }
   ]
 }
