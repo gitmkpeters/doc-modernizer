@@ -40,10 +40,8 @@ from models.pipeline_state import PipelineState
 from agents import analyzer
 from agents import converter
 from agents import test_generator
-
-# Agents 4-5 will be imported here as we build them:
-# from agents import deployer
-# from agents import verifier
+from agents import deployer
+from agents import verifier
 
 
 def human_review_gate(state: PipelineState, gate_name: str) -> bool:
@@ -217,15 +215,55 @@ def run_pipeline(document_path: str) -> PipelineState:
         return state
 
     # ── AGENT 4 — DEPLOYER ────────────────────────────────────────────────────
-    print("\n  [Agent 4 — Deployer: coming soon]")
+    #
+    # Writes the modernized document to a timestamped .md file.
+    # No Claude API call — this agent is purely operational.
+
+    try:
+        state = deployer.run(state)
+    except Exception as e:
+        error_msg = f"Deployer failed: {e}"
+        state.errors.append(error_msg)
+        print(f"\n  ✗ {error_msg}")
+        print("  Pipeline halted due to Agent 4 error.")
+        save_checkpoint(state, "FAILED_at_deployer")
+        return state
+
+    save_checkpoint(state, "after_agent4_deployer")
 
     # ── AGENT 5 — VERIFIER ────────────────────────────────────────────────────
-    print("  [Agent 5 — Verifier: coming soon]")
+    #
+    # Final quality gate. Compares original vs. modernized, scores the
+    # conversion, and produces a formal sign-off report.
+
+    try:
+        state = verifier.run(state, client)
+    except Exception as e:
+        error_msg = f"Verifier failed: {e}"
+        state.errors.append(error_msg)
+        print(f"\n  ✗ {error_msg}")
+        print("  Pipeline halted due to Agent 5 error.")
+        save_checkpoint(state, "FAILED_at_verifier")
+        return state
+
+    save_checkpoint(state, "after_agent5_verifier")
+
+    # ── PIPELINE COMPLETE ──────────────────────────────────────────────────────
+    sign_off = state.verification_report.get("sign_off", False) if state.verification_report else False
+    score = state.verification_report.get("confidence_score", 0) if state.verification_report else 0
 
     print("\n" + "=" * 60)
-    print("  PIPELINE COMPLETE (Session 3 scope)")
+    print("  PIPELINE COMPLETE")
     print("=" * 60)
     print(state.summary())
+    print()
+    if sign_off:
+        print(f"  ✓ PIPELINE PASSED — Score: {score}/100 — Document signed off")
+        print(f"  Output : {state.output_file_path}")
+        print(f"  Report : reports/{state.pipeline_id}_verification_report.json")
+    else:
+        print(f"  ✗ PIPELINE FAILED VERIFICATION — Score: {score}/100")
+        print(f"  Review the verification report for details before using this output.")
 
     return state
 
