@@ -147,14 +147,15 @@ def run(state: PipelineState, client: anthropic.Anthropic) -> PipelineState:
     # We use the Messages API with a system prompt (the agent's role) and a
     # user message (the document to analyze).
     #
-    # max_tokens=4096: The semantic map can be large for complex documents.
-    # Tune this up if you're analyzing long policy manuals.
+    # max_tokens=8192: Generous limit so the JSON semantic map is never
+    # truncated mid-response. The first run used 4,014 of a 4,096 limit —
+    # dangerously close. Always give structured-output agents room to breathe.
 
     print("\n  Calling Claude... ", end="", flush=True)
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=4096,
+        max_tokens=8192,
         system=SYSTEM_PROMPT,
         messages=[
             {
